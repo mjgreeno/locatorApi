@@ -1,0 +1,87 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Pharmacy Locator API",
+        "version": "1.0.0"
+    },
+    "basePath": "/api",
+    "paths": {
+        "/api/location": {
+            "get": {
+                "summary": "List all pharmacy locations",
+                "operationId": "getAllPharmacies",
+                "responses": {
+                    "200": {
+                        "description": "Locations retrieved successfully."
+                    },
+                    "406": {
+                        "description": "Location not found."
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/api/location/{ID}": {
+            "get": {
+                "summary": "List one pharmacy locations",
+                "operationId": "getPharmacyById",
+                "parameters": [
+                    {
+                        "name": "Id",
+                        "in": "path",
+                        "description": "Specific Pharmacy.",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Locations retrieved successfully."
+                    },
+                    "406": {
+                        "description": "Location not found."
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        },
+        "/api/locationnearest": {
+            "get": {
+                "summary": "List all pharmacy locations",
+                "operationId": "getPharmacyById",
+                "parameters": [
+                    {
+                        "name": "lat",
+                        "in": "query",
+                        "description": "Latitude of Pharmacy.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "long",
+                        "in": "query",
+                        "description": "Longitude of Pharmacy.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Locations retrieved successfully."
+                    },
+                    "406": {
+                        "description": "Location not found."
+                    },
+                    "500": {
+                        "description": "internal server error"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
